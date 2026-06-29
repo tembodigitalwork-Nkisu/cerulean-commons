@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import Residence from "./components/Residence";
 import Rooms from "./components/Rooms";
 import Amenities from "./components/Amenities";
@@ -12,9 +11,8 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
       <Navbar />
-      <Hero />
       <Residence />
       <Rooms />
       <Amenities />
