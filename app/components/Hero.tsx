@@ -1,12 +1,7 @@
-"use client";
-
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
 import { ShieldCheck, Bus, BedDouble, MapPin } from "lucide-react";
 import Dove from "./Dove";
 import { site, waLink } from "@/lib/site";
-
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const chips = [
   { icon: BedDouble, label: `${site.spaces} spaces available` },
@@ -15,16 +10,6 @@ const chips = [
 ];
 
 export default function Hero() {
-  const reduce = useReducedMotion();
-  const rise = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 22 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.7, delay, ease: EASE },
-        };
-
   return (
     <section id="top" className="relative overflow-hidden bg-navy text-white">
       <div className="paver absolute inset-0 opacity-70" aria-hidden />
@@ -39,36 +24,39 @@ export default function Hero() {
 
       <div className="wrap relative grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
         <div>
-          <motion.div {...rise(0)} className="eyebrow text-azure-soft">
+          <div className="eyebrow animate-rise text-azure-soft">
             <MapPin className="h-4 w-4" />
             {site.forWho} · {site.area}
-          </motion.div>
+          </div>
 
-          <motion.p
-            {...rise(0.05)}
-            className="mt-4 font-script text-3xl text-gold sm:text-4xl"
+          <p
+            className="mt-4 animate-rise font-script text-3xl text-gold sm:text-4xl"
+            style={{ animationDelay: "0.05s" }}
           >
             {site.tagline}
-          </motion.p>
+          </p>
 
-          <motion.h1
-            {...rise(0.12)}
-            className="mt-2 text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl"
+          <h1
+            className="mt-2 animate-rise text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl"
+            style={{ animationDelay: "0.12s" }}
           >
             Safe, modern living near{" "}
             <span className="text-azure-soft">UNILUS Silverest.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            {...rise(0.2)}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-white/80"
+          <p
+            className="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-white/80"
+            style={{ animationDelay: "0.2s" }}
           >
             Newly built, female-only rooms just {site.distanceKm} km from campus.
             Your rent covers WiFi, a daily campus shuttle, 24/7 security and backup
             power. No hidden fees, just a calm place to focus on your studies.
-          </motion.p>
+          </p>
 
-          <motion.div {...rise(0.28)} className="mt-8 flex flex-wrap gap-3">
+          <div
+            className="mt-8 flex animate-rise flex-wrap gap-3"
+            style={{ animationDelay: "0.28s" }}
+          >
             <a href="#reserve" className="btn-gold">
               Reserve a space
             </a>
@@ -82,11 +70,11 @@ export default function Hero() {
             >
               Chat on WhatsApp
             </a>
-          </motion.div>
+          </div>
 
-          <motion.ul
-            {...rise(0.36)}
-            className="mt-10 flex flex-wrap gap-x-6 gap-y-3"
+          <ul
+            className="mt-10 flex animate-rise flex-wrap gap-x-6 gap-y-3"
+            style={{ animationDelay: "0.36s" }}
           >
             {chips.map((c) => (
               <li key={c.label} className="flex items-center gap-2 text-sm text-white/85">
@@ -94,19 +82,10 @@ export default function Hero() {
                 {c.label}
               </li>
             ))}
-          </motion.ul>
+          </ul>
         </div>
 
-        <motion.div
-          {...(reduce
-            ? {}
-            : {
-                initial: { opacity: 0, scale: 0.96 },
-                animate: { opacity: 1, scale: 1 },
-                transition: { duration: 0.8, delay: 0.2, ease: EASE },
-              })}
-          className="relative"
-        >
+        <div className="relative animate-rise" style={{ animationDelay: "0.2s" }}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-4xl border border-white/15 shadow-lift sm:aspect-[5/5]">
             <Image
               src="/images/courtyard.jpg"
@@ -129,7 +108,7 @@ export default function Hero() {
               <span className="block text-xs text-slate-soft">to Silverest campus</span>
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Reassurance strip from the brand: safe, secure, comfortable */}
