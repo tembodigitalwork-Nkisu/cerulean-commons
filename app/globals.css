@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-script: "Dancing Script", cursive;
-}
+/* Font CSS variables (--font-display / --font-body / --font-script) are
+   supplied by next/font in app/layout.tsx, which self-hosts the fonts and
+   sets each variable to its hashed family name plus a fallback stack.
+   They are intentionally NOT redeclared here: hardcoding the plain family
+   names would shadow the loaded fonts and fall back to system defaults. */
 
 @layer base {
   html {
